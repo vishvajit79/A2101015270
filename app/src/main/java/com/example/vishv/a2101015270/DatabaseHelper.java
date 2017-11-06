@@ -31,8 +31,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + "firstname TEXT, "
                 + "lastname TEXT, "
                 + "department TEXT,"
-                + "doctorId INTEGER,"
-                + "FOREIGN KEY(doctorId) REFERENCES doctor(doctorId));");
+                + "doctorId INTEGER);");
 
         db.execSQL("CREATE TABLE  test ("
                 + "testId INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -42,25 +41,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "patientId INTEGER," +
                 "bpl TEXT," +
                 "bph TEXT," +
-                "temperature TEXT," +
-                "FOREIGN KEY(patientId) REFERENCES patient(patientId));");
+                "temperature TEXT);");
 
         db.execSQL("CREATE TABLE  nurse ("
                 + "nurseId INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + "firstname TEXT, "
                 + "lastname TEXT, "
                 + "department TEXT);");
-
-        insertData(db, "Vishvajit", "Kher", "GBC", "vishvajit79", "Vishu@9033");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+        // on upgrade drop older tables
+        db.execSQL("DROP TABLE IF EXISTS test");
+        db.execSQL("DROP TABLE IF EXISTS nurse");
+        db.execSQL("DROP TABLE IF EXISTS patient");
         db.execSQL("DROP TABLE IF EXISTS doctor");
+
+        // create new tables
         onCreate(db);
     }
 
-    public void insertData(SQLiteDatabase db, String fname, String lname, String department, String username, String password){
+    private void insertData(SQLiteDatabase db, String fname, String lname, String department, String username, String password){
         ContentValues insert = new ContentValues();
         insert.put("firstname", fname);
         insert.put("lastname", lname);
