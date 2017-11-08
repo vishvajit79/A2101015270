@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">A2101015270</string>
+    <string-array name="doctor_nurse">
+         <item>Doctor</item>
+         <item>Nurse</item>
+    </string-array>
 </resources>
