@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.vishv.a2101015270.AddPatientActivity">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="41dp"
+        android:text="Add New Patient"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/add_patient_firstname_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/textView3"
+        android:layout_marginEnd="70dp"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:hint="First Name"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editTeadd_patient_lastname_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/add_patient_firstname_txt"
+        android:layout_below="@+id/add_patient_firstname_txt"
+        android:ems="10"
+        android:hint="Last Name"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/add_patient_department_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/editTeadd_patient_lastname_txt"
+        android:layout_below="@+id/editTeadd_patient_lastname_txt"
+        android:ems="10"
+        android:hint="Department"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/add_patient_room_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/add_patient_department_txt"
+        android:layout_centerVertical="true"
+        android:ems="10"
+        android:hint="Room"
+        android:inputType="textPersonName" />
+
+    <Spinner
+        android:id="@+id/add_patient_doctor_spn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/add_patient_room_txt"
+        android:entries="@array/doctor_nurse"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/add_patient_create_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/add_patient_doctor_spn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="Add Patient" />
+</RelativeLayout>
