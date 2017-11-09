@@ -13,8 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="48dp"
-        android:entries="@array/doctor_nurse" />
+        android:entries="@array/doctor_nurse"
+        android:layout_marginTop="48dp" />
 
     <EditText
         android:id="@+id/register_firstnane_txt"

@@ -49,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 if(validUser) {
                     Intent i = new Intent(view.getContext(), DashboardActivity.class);
+                    i.putExtra("username", username.getText().toString());
                     startActivity(i);
                 } else {
                     Toast.makeText(view.getContext(), "Invalid login", Toast.LENGTH_SHORT).show();

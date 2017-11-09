@@ -2,10 +2,14 @@ package com.example.vishv.a2101015270;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.DatabaseErrorHandler;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -48,6 +52,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + "firstname TEXT, "
                 + "lastname TEXT, "
                 + "department TEXT,"
+                + "room TEXT,"
                 + "doctorId INTEGER);");
 
         db.execSQL("CREATE TABLE  test ("
@@ -68,7 +73,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + "username TEXT,"
                 + "password TEXT);");
 
-        addNewDoctor(db, "Vishvajit", "Kher", "Surgery", "vishvajit79", "123456");
+//        addNewDoctor(db, "Vishvajit", "Kher", "Surgery", "vishvajit79", "123456");
     }
 
     public void addNewDoctor(SQLiteDatabase db, String fname, String lname, String department, String username, String password){
@@ -91,11 +96,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.insert("nurse", null, insert);
     }
 
-    public void addPatient(SQLiteDatabase db, String fname, String lname, String department, int id){
+    public void addPatient(SQLiteDatabase db, String fname, String lname, String department, String room, int id){
         ContentValues insert = new ContentValues();
         insert.put("firstname", fname);
         insert.put("lastname", lname);
         insert.put("department", department);
+        insert.put("room", room);
         insert.put("doctorId", id);
         db.insert("patient", null, insert);
     }
@@ -112,4 +118,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.insert("test", null, insert);
     }
 
+    /**
+     * Getting all labels
+     * returns list of labels
+     * */
+    public List<String> getAllDoctors(){
+        List<String> labels = new ArrayList<String>();
+
+        // Select All Query
+        String selectQuery = "SELECT firstname FROM doctor" ;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                labels.add(cursor.getString(0));
+            } while (cursor.moveToNext());
+        }
+
+        // closing connection
+        cursor.close();
+        db.close();
+
+        // returning lables
+        return labels;
+    }
 }

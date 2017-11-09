@@ -10,13 +10,13 @@
         android:id="@+id/dashboard_create_patient_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/dashboard_welcome_txt"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
         android:text="Create New Patient" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/dashboard_welcome_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"

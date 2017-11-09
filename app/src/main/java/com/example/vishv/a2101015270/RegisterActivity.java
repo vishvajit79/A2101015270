@@ -8,11 +8,14 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.List;
 import java.util.Objects;
 
 public class RegisterActivity extends Activity{
@@ -80,4 +83,6 @@ public class RegisterActivity extends Activity{
         });
 
     }
+
+
 }
