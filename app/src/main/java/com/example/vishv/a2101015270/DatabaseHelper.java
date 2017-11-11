@@ -48,7 +48,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + "password TEXT);");
 
         db.execSQL("CREATE TABLE  patient ("
-                + "patientId INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + "firstname TEXT, "
                 + "lastname TEXT, "
                 + "department TEXT,"
@@ -56,10 +56,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + "doctorId INTEGER);");
 
         db.execSQL("CREATE TABLE  test ("
-                + "testId INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + "firstname TEXT, "
-                + "lastname TEXT, "
-                + "department TEXT,"
+                + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + "patientId INTEGER,"
                 + "bpl TEXT,"
                 + "bph TEXT,"
@@ -106,11 +103,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.insert("patient", null, insert);
     }
 
-    public void addTest(SQLiteDatabase db, String fname, String lname, String department, int id, String bpl, String bph, String temperature){
+    public void addTest(SQLiteDatabase db,  int id, String bpl, String bph, String temperature){
         ContentValues insert = new ContentValues();
-        insert.put("firstname", fname);
-        insert.put("lastname", lname);
-        insert.put("department", department);
         insert.put("patientId", id);
         insert.put("bpl", bpl);
         insert.put("bph", bph);
@@ -127,6 +121,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         // Select All Query
         String selectQuery = "SELECT firstname FROM doctor" ;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                labels.add(cursor.getString(0));
+            } while (cursor.moveToNext());
+        }
+
+        // closing connection
+        cursor.close();
+        db.close();
+
+        // returning lables
+        return labels;
+    }
+
+    public List<String> getAllPatient(){
+        List<String> labels = new ArrayList<String>();
+
+        // Select All Query
+        String selectQuery = "SELECT firstname FROM patient" ;
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);

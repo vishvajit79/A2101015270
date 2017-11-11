@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.vishv.a2101015270.AddTestActivity">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp"
+        android:text="Add New Test" />
+
+    <EditText
+        android:id="@+id/add_test_bpl_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp"
+        android:ems="10"
+        android:hint="BPL"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/add_test_bph_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/add_test_bpl_txt"
+        android:layout_below="@+id/add_test_bpl_txt"
+        android:ems="10"
+        android:hint="BPH"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/add_test_temperature_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/add_test_bph_txt"
+        android:layout_below="@+id/add_test_bph_txt"
+        android:ems="10"
+        android:hint="Temperature"
+        android:inputType="textPersonName" />
+
+    <Spinner
+        android:id="@+id/add_test_patientId_sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/add_test_temperature_txt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="27dp" />
+
+    <Button
+        android:id="@+id/add_test_add_test_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_below="@+id/add_test_patientId_sp"
+        android:layout_marginTop="26dp"
+        android:text="Add Test" />
+</RelativeLayout>
