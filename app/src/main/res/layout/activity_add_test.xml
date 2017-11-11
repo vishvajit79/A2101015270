@@ -1,19 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.vishv.a2101015270.AddTestActivity">
 
     <TextView
+        android:id="@+id/textView16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/add_test_patientId_sp"
+        android:layout_marginTop="27dp"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/select_assigned_patient_from_the_dropdown"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+    <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:fontFamily="@font/montserrat"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="23dp"
-        android:text="Add New Test" />
+        android:text="@string/add_new_test" />
 
     <EditText
         android:id="@+id/add_test_bpl_txt"
@@ -21,9 +35,12 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:fontFamily="@font/montserrat"
         android:layout_marginTop="23dp"
         android:ems="10"
-        android:hint="BPL"
+        android:hint="@string/bpl"
         android:inputType="textPersonName" />
 
     <EditText
@@ -33,17 +50,21 @@
         android:layout_alignStart="@+id/add_test_bpl_txt"
         android:layout_below="@+id/add_test_bpl_txt"
         android:ems="10"
-        android:hint="BPH"
-        android:inputType="textPersonName" />
+        android:hint="@string/bph"
+        android:inputType="textPersonName"
+        android:textAlignment="center" />
 
     <EditText
         android:id="@+id/add_test_temperature_txt"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:fontFamily="@font/montserrat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/add_test_bph_txt"
         android:layout_below="@+id/add_test_bph_txt"
         android:ems="10"
-        android:hint="Temperature"
+        android:hint="@string/temperature"
         android:inputType="textPersonName" />
 
     <Spinner
@@ -52,14 +73,20 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/add_test_temperature_txt"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="27dp" />
+        android:layout_marginTop="21dp"
+        android:fontFamily="@font/montserrat"
+        android:textAlignment="center"
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/add_test_add_test_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView2"
-        android:layout_below="@+id/add_test_patientId_sp"
-        android:layout_marginTop="26dp"
-        android:text="Add Test" />
+        android:layout_below="@+id/textView16"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/add_test"
+        android:textAlignment="center"
+        android:textSize="20sp" />
 </RelativeLayout>

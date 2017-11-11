@@ -17,6 +17,8 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
 public class DashboardActivity extends Activity {
 
     private TextView textView;
@@ -25,6 +27,7 @@ public class DashboardActivity extends Activity {
     private Button createNewTestBtn;
     private SQLiteDatabase db;
     private Cursor cursor;
+    DatabaseHelper databaseHelper = new DatabaseHelper(this);
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -34,7 +37,7 @@ public class DashboardActivity extends Activity {
         final Bundle bundle = getIntent().getExtras();
         textView = findViewById(R.id.dashboard_welcome_txt);
         assert bundle != null;
-        textView.setText("Welcome, " + bundle.getString("username").toUpperCase());
+        textView.setText("Welcome, " + bundle.getString("username").toLowerCase());
         createNewPatientBtn = findViewById(R.id.dashboard_create_patient_btn);
         createNewTestBtn = findViewById(R.id.dashbaord_create_new_test_btn);
 
@@ -76,13 +79,19 @@ public class DashboardActivity extends Activity {
             }
         });
 
-        createNewTestBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AddTestActivity.class);
-                intent.putExtra("username", bundle.getString("username"));
-                startActivity(intent);
-            }
-        });
+        if(databaseHelper.checkPatient()){
+            createNewTestBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getApplicationContext(), AddTestActivity.class);
+                    intent.putExtra("username", bundle.getString("username"));
+                    startActivity(intent);
+                }
+            });
+        }
+        if(!databaseHelper.checkPatient()){
+            Toast.makeText(this, "You need to add patient first", Toast.LENGTH_SHORT).show();
+        }
+
     }
 }

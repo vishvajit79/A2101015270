@@ -163,4 +163,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // returning lables
         return labels;
     }
+
+    public boolean checkPatient(){
+        List<String> labels = new ArrayList<String>();
+
+        // Select All Query
+        String selectQuery = "SELECT firstname FROM patient" ;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if(cursor.getCount() <= 0){
+            cursor.close();
+            return false;
+        }
+
+        // closing connection
+        cursor.close();
+        db.close();
+
+        // returning lables
+        return true;
+    }
 }

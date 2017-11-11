@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,21 +11,25 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:fontFamily="@font/montserrat"
         android:layout_marginTop="41dp"
-        android:text="Add New Patient"
+        android:text="@string/add_new_patient"
         android:textSize="20sp" />
 
     <EditText
         android:id="@+id/add_patient_firstname_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_below="@+id/textView3"
-        android:layout_marginEnd="70dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
         android:ems="10"
-        android:hint="First Name"
-        android:inputType="textPersonName" />
+        android:fontFamily="@font/montserrat"
+        android:hint="@string/first_name"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/add_patient_lastname_txt"
@@ -35,7 +38,10 @@
         android:layout_alignStart="@+id/add_patient_firstname_txt"
         android:layout_below="@+id/add_patient_firstname_txt"
         android:ems="10"
-        android:hint="Last Name"
+        android:hint="@string/lastname"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:fontFamily="@font/montserrat"
         android:inputType="textPersonName" />
 
     <EditText
@@ -45,7 +51,10 @@
         android:layout_alignEnd="@+id/add_patient_lastname_txt"
         android:layout_below="@+id/add_patient_lastname_txt"
         android:ems="10"
-        android:hint="Department"
+        android:hint="@string/department"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:fontFamily="@font/montserrat"
         android:inputType="textPersonName" />
 
     <EditText
@@ -53,25 +62,47 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/add_patient_department_txt"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/add_patient_department_txt"
         android:ems="10"
-        android:hint="Room"
-        android:inputType="textPersonName" />
+        android:fontFamily="@font/montserrat"
+        android:hint="@string/room"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:textSize="18sp" />
 
     <Spinner
         android:id="@+id/add_patient_doctor_spn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/add_patient_room_txt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="37dp"
         android:entries="@array/doctor_nurse"
-        android:layout_centerHorizontal="true" />
+        android:fontFamily="@font/montserrat"
+        android:textAlignment="center"
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/add_patient_create_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:layout_below="@+id/textView15"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/add_patient"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/add_patient_doctor_spn"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:text="Add Patient" />
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:fontFamily="@font/montserrat"
+        android:layout_marginTop="20dp"
+        android:text="Select assigned doctor from the dropdown" />
 </RelativeLayout>

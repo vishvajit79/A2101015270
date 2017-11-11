@@ -1,5 +1,6 @@
 package com.example.vishv.a2101015270;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
@@ -13,7 +14,7 @@ import android.widget.QuickContactBadge;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     private SQLiteDatabase db;
 

@@ -11,8 +11,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/dashboard_welcome_txt"
-        android:layout_marginTop="25dp"
-        android:text="Create New Patient" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/create_new_patient"
+        android:textAlignment="center"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/dashbaord_create_new_test_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dashboard_create_patient_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/create_new_test"
+        android:textAlignment="center"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/dashboard_welcome_txt"
@@ -20,32 +36,31 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="62dp"
-        android:text="Welcome, "
-        android:textSize="25sp" />
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/montserrat"
+        android:textAlignment="center"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dashbaord_create_new_test_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="21dp"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/list_of_all_patients_in_the_database_click_on_any_patient_to_view_details" />
 
     <ListView
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/dashboard_create_patient_btn"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:id="@+id/dashbaord_create_new_test_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/list"
-        android:layout_marginStart="19dp"
-        android:layout_toEndOf="@+id/dashboard_create_patient_btn"
-        android:text="CREATE NEW TEST" />
-
-    <!--<Button-->
-        <!--android:id="@+id/dashboard_view_patient_btn"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_below="@+id/dashboard_create_patient_btn"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:layout_marginTop="36dp"-->
-        <!--android:text="View Patients" />-->
+        android:layout_below="@+id/textView11"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:fontFamily="@font/montserrat"
+        android:layout_marginTop="19dp" />
 </RelativeLayout>

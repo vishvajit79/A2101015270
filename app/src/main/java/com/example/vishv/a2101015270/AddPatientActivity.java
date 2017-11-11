@@ -1,5 +1,6 @@
 package com.example.vishv.a2101015270;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
@@ -16,7 +17,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
-public class AddPatientActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class AddPatientActivity extends Activity implements AdapterView.OnItemSelectedListener {
 
     private Spinner spinner;
     private SQLiteDatabase sdb;
@@ -59,6 +60,8 @@ public class AddPatientActivity extends AppCompatActivity implements AdapterView
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(!validateTextEdits())
+                    return;
                 Intent intent = new Intent(view.getContext(), DashboardActivity.class);
                 db.addPatient(sdb, firstname.getText().toString(), lastname.getText().toString(), department.getText().toString(), room.getText().toString(), ((int) doctorId));
                 assert bundle != null;
@@ -93,5 +96,31 @@ public class AddPatientActivity extends AppCompatActivity implements AdapterView
 
         // attaching data adapter to spinner
         spinner.setAdapter(dataAdapter);
+    }
+
+    private boolean validateTextEdits() {
+        if (isEmptyString(firstname.getText().toString())) {
+            firstname.setError("Required");
+            return false;
+        }
+        if (isEmptyString(lastname.getText().toString())) {
+            lastname.setError("Required");
+            return false;
+        }
+        if (isEmptyString(department.getText().toString())) {
+            department.setError("Required");
+            return false;
+        }
+        if (isEmptyString(room.getText().toString())) {
+            room.setError("Required");
+            return false;
+        }
+
+        return true;
+    }
+
+    public static boolean isEmptyString(String text) {
+        return (text == null || text.trim().equals("null") || text.trim()
+                .length() <= 0);
     }
 }

@@ -7,10 +7,40 @@
     tools:context="com.example.vishv.a2101015270.ViewPatientActivity">
 
     <TextView
+        android:id="@+id/textView18"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView12"
+        android:fontFamily="@font/montserrat"
+        android:layout_marginTop="20sp"
+        android:text="@string/list_of_all_test_in_the_database_click_on_any_patient_to_view_details"
+        android:textAlignment="center"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/patient_details"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+    <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Firstname"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView17"
+        android:layout_marginTop="26dp"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:fontFamily="@font/montserrat"
+        android:text="Firstname: "
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="35dp" />
 
@@ -18,25 +48,33 @@
         android:id="@+id/view_patient_firstname_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="24dp"
-        android:layout_toEndOf="@+id/textView4"
-        android:text="TextView" />
+        android:layout_above="@+id/textView6"
+        android:layout_alignStart="@+id/textView17"
+        android:fontFamily="@font/montserrat"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/textView4"
-        android:layout_marginTop="14dp"
-        android:layout_toStartOf="@+id/view_patient_firstname_txt"
-        android:text="Lastname" />
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Lastname: "
+        android:textAlignment="center"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/view_patient_lastname_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/textView6"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:fontFamily="@font/montserrat"
         android:layout_alignBottom="@+id/textView6"
         android:layout_alignStart="@+id/view_patient_firstname_txt"
         android:text="TextView" />
@@ -47,13 +85,19 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textView6"
-        android:layout_marginTop="14dp"
-        android:text="Department" />
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:fontFamily="@font/montserrat"
+        android:layout_marginTop="15dp"
+        android:text="Department: " />
 
     <TextView
         android:id="@+id/view_patient_department_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:fontFamily="@font/montserrat"
         android:layout_alignStart="@+id/view_patient_lastname_txt"
         android:layout_alignTop="@+id/textView8"
         android:text="TextView" />
@@ -62,14 +106,20 @@
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:fontFamily="@font/montserrat"
         android:layout_alignStart="@+id/textView6"
         android:layout_below="@+id/textView8"
-        android:layout_marginTop="22dp"
-        android:text="Room" />
+        android:layout_marginTop="15dp"
+        android:text="Room: " />
 
     <TextView
         android:id="@+id/view_patient_room_txt"
         android:layout_width="wrap_content"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:fontFamily="@font/montserrat"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/view_patient_department_txt"
         android:layout_alignTop="@+id/textView10"
@@ -78,23 +128,33 @@
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:fontFamily="@font/montserrat"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textView10"
-        android:layout_marginTop="16dp"
-        android:text="Docotor" />
+        android:layout_marginTop="15dp"
+        android:text="Doctor: " />
 
     <TextView
         android:id="@+id/view_patient_doctor_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/view_patient_room_txt"
-        android:layout_alignTop="@+id/textView12"
-        android:text="TextView" />
+        android:layout_alignBaseline="@+id/textView12"
+        android:layout_alignBottom="@+id/textView12"
+        android:layout_alignStart="@+id/view_patient_room_txt"
+        android:fontFamily="@font/montserrat"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="18sp" />
 
     <ListView
         android:id="@+id/view_patient_test_lv"
         android:layout_width="match_parent"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:fontFamily="@font/montserrat"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textView12"

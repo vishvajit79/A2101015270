@@ -1,38 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.vishv.a2101015270.MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="47dp"
-        android:text="Sterling Hospital"
-        android:textAlignment="center"
-        android:textSize="36sp" />
-
     <Button
         android:id="@+id/main_login_btn"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/main_register_btn"
+        android:layout_below="@+id/imageView"
+        android:layout_marginTop="106dp"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/login"
+        android:textAlignment="center"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"
+        android:layout_below="@+id/main_login_btn"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="105dp"
-        android:text="Login" />
+        android:layout_marginTop="33dp"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/don_t_have_an_account_create_now"
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/main_register_btn"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/main_login_btn"
-        android:layout_below="@+id/main_login_btn"
-        android:layout_marginTop="49dp"
-        android:text="Register" />
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/register"
+        android:textAlignment="center"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="14dp"
+        android:src="@drawable/hospital_logo"
+        android:contentDescription="@string/app_logo" />
 
 </RelativeLayout>

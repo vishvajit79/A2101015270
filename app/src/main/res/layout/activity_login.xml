@@ -15,7 +15,10 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="150dp"
         android:ems="10"
-        android:hint="Username"
+        android:hint="@string/username"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:fontFamily="@font/montserrat"
         android:inputType="textPersonName" />
 
     <EditText
@@ -26,17 +29,24 @@
         android:layout_below="@+id/login_username_txt"
         android:layout_marginTop="24dp"
         android:ems="10"
-        android:hint="Password"
-        android:inputType="textPersonName" />
+        android:fontFamily="@font/montserrat"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        tools:ignore="TextFields" />
 
     <Button
         android:id="@+id/login_login_btn"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/login_password_txt"
         android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:fontFamily="@font/montserrat"
         android:layout_marginTop="42dp"
-        android:text="Login" />
+        android:text="@string/login" />
 
     <Spinner
         android:id="@+id/login_spinner"
@@ -44,6 +54,21 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/login_password_txt"
         android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:fontFamily="@font/montserrat"
         android:layout_marginBottom="71dp"
         android:entries="@array/doctor_nurse" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/please_select_the_either_doctor_nurse" />
 </RelativeLayout>

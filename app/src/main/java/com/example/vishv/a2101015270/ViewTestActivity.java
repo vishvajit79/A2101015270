@@ -1,5 +1,6 @@
 package com.example.vishv.a2101015270;
 
+import android.app.Activity;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
@@ -11,7 +12,7 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class ViewTestActivity extends AppCompatActivity {
+public class ViewTestActivity extends Activity {
 
     private SQLiteDatabase db;
     private TextView bpl;

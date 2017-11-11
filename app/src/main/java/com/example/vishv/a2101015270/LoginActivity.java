@@ -1,5 +1,6 @@
 package com.example.vishv.a2101015270;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -9,17 +10,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends Activity {
 
     private SQLiteDatabase db;
-    private TextView username;
-    private TextView password;
+    private EditText username;
+    private EditText password;
     private Spinner spinner;
 
     @Override
@@ -45,6 +47,8 @@ public class LoginActivity extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(!validateTextEdits())
+                    return;
                 Boolean validUser = checkLogin(username.getText().toString(), password.getText().toString());
 
                 if(validUser) {
@@ -74,5 +78,23 @@ public class LoginActivity extends AppCompatActivity {
             db.close();
             return true;
         }
+    }
+
+    private boolean validateTextEdits() {
+        if (isEmptyString(username.getText().toString())) {
+            username.setError("Required");
+            return false;
+        }
+        if (isEmptyString(password.getText().toString())) {
+            password.setError("Required");
+            return false;
+        }
+
+        return true;
+    }
+
+    public static boolean isEmptyString(String text) {
+        return (text == null || text.trim().equals("null") || text.trim()
+                .length() <= 0);
     }
 }

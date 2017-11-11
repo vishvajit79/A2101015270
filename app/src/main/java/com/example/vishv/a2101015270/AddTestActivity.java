@@ -1,5 +1,6 @@
 package com.example.vishv.a2101015270;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
@@ -13,10 +14,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import java.util.List;
 
-public class AddTestActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class AddTestActivity extends Activity implements AdapterView.OnItemSelectedListener {
 
     private EditText bpl;
     private EditText bph;
@@ -54,6 +54,8 @@ public class AddTestActivity extends AppCompatActivity implements AdapterView.On
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(!validateTextEdits())
+                    return;
                 Intent intent = new Intent(view.getContext(), DashboardActivity.class);
                 db.addTest(sdb, ((int) patientId), bpl.getText().toString(), bph.getText().toString(), temperature.getText().toString());
                 assert bundle != null;
@@ -88,5 +90,27 @@ public class AddTestActivity extends AppCompatActivity implements AdapterView.On
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 
+    }
+
+    private boolean validateTextEdits() {
+        if (isEmptyString(bph.getText().toString())) {
+            bph.setError("Required");
+            return false;
+        }
+        if (isEmptyString(bpl.getText().toString())) {
+            bpl.setError("Required");
+            return false;
+        }
+        if (isEmptyString(temperature.getText().toString())) {
+            temperature.setError("Required");
+            return false;
+        }
+
+        return true;
+    }
+
+    public static boolean isEmptyString(String text) {
+        return (text == null || text.trim().equals("null") || text.trim()
+                .length() <= 0);
     }
 }

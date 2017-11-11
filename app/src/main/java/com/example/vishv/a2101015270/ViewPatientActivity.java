@@ -1,5 +1,6 @@
 package com.example.vishv.a2101015270;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -18,7 +19,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class ViewPatientActivity extends AppCompatActivity {
+public class ViewPatientActivity extends Activity {
 
     private TextView firstname;
     private TextView lastname;

@@ -61,6 +61,8 @@ public class RegisterActivity extends Activity{
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(!validateTextEdits())
+                    return;
                 Intent intent = new Intent(view.getContext(), LoginActivity.class);
                 if(Objects.equals(spinner.getSelectedItem().toString(), "Doctor")){
                     databaseHelper.addNewDoctor(db, firstname.getText().toString(), lastname.getText().toString(), department.getText().toString(), username.getText().toString(), password.getText().toString());
@@ -84,5 +86,34 @@ public class RegisterActivity extends Activity{
 
     }
 
+    private boolean validateTextEdits() {
+        if (isEmptyString(firstname.getText().toString())) {
+            firstname.setError("Required");
+            return false;
+        }
+        if (isEmptyString(lastname.getText().toString())) {
+            lastname.setError("Required");
+            return false;
+        }
+        if (isEmptyString(department.getText().toString())) {
+            department.setError("Required");
+            return false;
+        }
+        if (isEmptyString(username.getText().toString())) {
+            username.setError("Required");
+            return false;
+        }
+        if (isEmptyString(password.getText().toString())) {
+            password.setError("Required");
+            return false;
+        }
+
+        return true;
+    }
+
+    public static boolean isEmptyString(String text) {
+        return (text == null || text.trim().equals("null") || text.trim()
+                .length() <= 0);
+    }
 
 }
