@@ -79,19 +79,19 @@ public class DashboardActivity extends Activity {
             }
         });
 
-        if(databaseHelper.checkPatient()){
-            createNewTestBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(getApplicationContext(), AddTestActivity.class);
-                    intent.putExtra("username", bundle.getString("username"));
-                    startActivity(intent);
-                }
-            });
-        }
-        if(!databaseHelper.checkPatient()){
-            Toast.makeText(this, "You need to add patient first", Toast.LENGTH_SHORT).show();
-        }
 
+        createNewTestBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(databaseHelper.checkPatient()){
+                Intent intent = new Intent(getApplicationContext(), AddTestActivity.class);
+                intent.putExtra("username", bundle.getString("username"));
+                startActivity(intent);
+                }
+                else if(!databaseHelper.checkPatient()){
+                    Toast.makeText(getApplicationContext(), "You need to add patient first", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 }
